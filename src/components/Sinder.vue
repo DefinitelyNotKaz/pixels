@@ -1,0 +1,84 @@
+<template>
+  <div id="content" class="container">
+    <h2>Templates</h2>
+    <div id="card-container">
+      <Card v-for="item in templates" :key="item.id" :title="item.title" :description="item.description"
+        :image="item.image" :href="item.href" :vertical="verticalCards"></Card>
+    </div>
+    <hr>
+    <h2>Notifications</h2>
+    <div>
+      <b-table :fields="fields" :items="audioFiles">
+        <template #cell(playback)="data">
+          <span>
+            <audio controls>
+              <source :src="data.value" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </span>
+        </template>
+      </b-table>
+
+
+    </div>
+  </div>
+</template>
+
+<script>
+import Template from './Cards.vue'
+
+import mainTemplate from '@/assets/sinder/main.png'
+import tofTemplate from '@/assets/sinder/tof.png'
+
+export default {
+  name: "Sinder-canvas",
+  components: {
+    Card: Template
+  },
+  data() {
+    return {
+      templates: [
+        {
+          id: 0,
+          title: "Main Template",
+          description: "Main template used by The Swarm.\nImage might be outdated but the button goes to the newest version.",
+          image: mainTemplate,
+          href: "https://osutemplate.osupxlshosting.ovh/sinder/"
+        },
+        {
+          id: 1,
+          title: "Tof",
+          description: "Tof template from Anny's community.",
+          image: tofTemplate,
+          href: "https://sinder.pxls.world/#x=861&y=732&scale=35.04&template=https%3A%2F%2Fi.imgur.com%2FO2rVQyC.png&ox=845&oy=720&tw=-1&title=toffee&convert=nearestCustom"
+        },
+      ],
+      fields: ["name", "url", "playback"],
+      audioFiles: [
+        { name: "Neuro Meow", url:"https://evilneuro.com/neuro-meow.mp3", playback: '/audio/neuro-meow.mp3' },
+        { name: "Neuro Bwaa", url:"https://evilneuro.com/neuro-bwaa.mp3", playback: '/audio/neuro-bwaa.mp3' },
+        { name: "Evil KEK", url:"https://evilneuro.com/evil-kek.mp3", playback: '/audio/evil-kek.mp3' },
+        { name: "Evil Dink Donk", url:"https://evilneuro.com/evil-dinkdonk.mp3", playback: '/audio/evil-dinkdonk.mp3' },
+        { name: "Evil AAAAAAH", url:"https://evilneuro.com/evil-AAAAH.mp3", playback: '/audio/evil-AAAAH.mp3' },
+      ]
+    }
+  },
+  computed: {
+    verticalCards() {
+      return this.templates.length > 2
+    }
+  }
+};
+</script>
+
+<style scoped>
+#content {
+  border-width: 1px;
+}
+
+#card-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+</style>
