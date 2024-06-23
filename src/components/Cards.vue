@@ -6,7 +6,11 @@
           {{ description }}
         </b-card-text>
 
-        <b-button :href="href" variant="primary">Open</b-button>
+        <div id="buttons">
+          <b-button :href="href" variant="primary">Open</b-button>
+          <b-button v-for="(alt, index) in alternatives" :key="index" :href="alt.href" variant="secondary">{{
+            alt.label }}</b-button>
+        </div>
       </b-card>
     </div>
     <div v-if="!vertical">
@@ -20,7 +24,11 @@
               <b-card-text>
                 {{ description }}
               </b-card-text>
-              <b-button :href="href" variant="primary">Open</b-button>
+              <div id="buttons">
+                <b-button :href="href" variant="primary">Open</b-button>
+                <b-button v-for="(alt, index) in alternatives" :key="index" :href="alt.href" variant="secondary">{{
+                  alt.label }}</b-button>
+              </div>
             </b-card-body>
           </b-col>
         </b-row>
@@ -53,12 +61,22 @@ export default {
       type: String,
       required: true
     },
+    alternatives: {
+      type: Array,
+      required: false,
+      default: () => []
+    }
   },
 }
 </script>
 
 <style scoped>
-  #container {
-    margin-bottom: 1em;
-  }
+#container {
+  margin-bottom: 1em;
+}
+
+#buttons {
+  display: flex;
+  justify-content: space-between;
+}
 </style>

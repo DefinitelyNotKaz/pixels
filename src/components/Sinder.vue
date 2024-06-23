@@ -3,7 +3,7 @@
     <h2>Templates</h2>
     <div id="card-container">
       <Card v-for="item in templates" :key="item.id" :title="item.title" :description="item.description"
-        :image="item.image" :href="item.href" :vertical="verticalCards"></Card>
+        :image="item.image" :href="item.href" :alternatives="item.alternatives" :vertical="verticalCards"></Card>
     </div>
     <hr>
     <h2>Notifications</h2>
@@ -43,7 +43,8 @@ export default {
           title: "Main Template",
           description: "Main template used by The Swarm.\nImage might be outdated but the button goes to the newest version.",
           image: mainTemplate,
-          href: "https://osutemplate.osupxlshosting.ovh/sinder/"
+          href: "https://osutemplate.osupxlshosting.ovh/sinder/",
+          alternatives: [{ label: "Dots", href: "https://osutemplate.osupxlshosting.ovh/sinder-dot" }]
         },
         {
           id: 1,
@@ -55,11 +56,11 @@ export default {
       ],
       fields: ["name", "url", "playback"],
       audioFiles: [
-        { name: "Neuro Meow", url:"https://evilneuro.com/audio/neuro-meow.mp3", playback: '/audio/neuro-meow.mp3' },
-        { name: "Neuro Bwaa", url:"https://evilneuro.com/audio/neuro-bwaa.mp3", playback: '/audio/neuro-bwaa.mp3' },
-        { name: "Evil KEK", url:"https://evilneuro.com/audio/evil-kek.mp3", playback: '/audio/evil-kek.mp3' },
-        { name: "Evil Dink Donk", url:"https://evilneuro.com/audio/evil-dinkdonk.mp3", playback: '/audio/evil-dinkdonk.mp3' },
-        { name: "Evil AAAAAAH", url:"https://evilneuro.com/audio/evil-AAAAH.mp3", playback: '/audio/evil-AAAAH.mp3' },
+        { name: "Neuro Meow", url: "https://evilneuro.com/audio/neuro-meow.mp3", playback: '/audio/neuro-meow.mp3' },
+        { name: "Neuro Bwaa", url: "https://evilneuro.com/audio/neuro-bwaa.mp3", playback: '/audio/neuro-bwaa.mp3' },
+        { name: "Evil KEK", url: "https://evilneuro.com/audio/evil-kek.mp3", playback: '/audio/evil-kek.mp3' },
+        { name: "Evil Dink Donk", url: "https://evilneuro.com/audio/evil-dinkdonk.mp3", playback: '/audio/evil-dinkdonk.mp3' },
+        { name: "Evil AAAAAAH", url: "https://evilneuro.com/audio/evil-AAAAH.mp3", playback: '/audio/evil-AAAAH.mp3' },
       ]
     }
   },
