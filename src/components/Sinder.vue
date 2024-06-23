@@ -55,11 +55,11 @@ export default {
       ],
       fields: ["name", "url", "playback"],
       audioFiles: [
-        { name: "Neuro Meow", url:"https://evilneuro.com/neuro-meow.mp3", playback: '/audio/neuro-meow.mp3' },
-        { name: "Neuro Bwaa", url:"https://evilneuro.com/neuro-bwaa.mp3", playback: '/audio/neuro-bwaa.mp3' },
-        { name: "Evil KEK", url:"https://evilneuro.com/evil-kek.mp3", playback: '/audio/evil-kek.mp3' },
-        { name: "Evil Dink Donk", url:"https://evilneuro.com/evil-dinkdonk.mp3", playback: '/audio/evil-dinkdonk.mp3' },
-        { name: "Evil AAAAAAH", url:"https://evilneuro.com/evil-AAAAH.mp3", playback: '/audio/evil-AAAAH.mp3' },
+        { name: "Neuro Meow", url:"https://evilneuro.com/audio/neuro-meow.mp3", playback: '/audio/neuro-meow.mp3' },
+        { name: "Neuro Bwaa", url:"https://evilneuro.com/audio/neuro-bwaa.mp3", playback: '/audio/neuro-bwaa.mp3' },
+        { name: "Evil KEK", url:"https://evilneuro.com/audio/evil-kek.mp3", playback: '/audio/evil-kek.mp3' },
+        { name: "Evil Dink Donk", url:"https://evilneuro.com/audio/evil-dinkdonk.mp3", playback: '/audio/evil-dinkdonk.mp3' },
+        { name: "Evil AAAAAAH", url:"https://evilneuro.com/audio/evil-AAAAH.mp3", playback: '/audio/evil-AAAAH.mp3' },
       ]
     }
   },
