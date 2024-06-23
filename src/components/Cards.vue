@@ -17,7 +17,8 @@
       <b-card no-body class="overflow-hidden h-100" style="max-width: 540px">
         <b-row no-gutters>
           <b-col md="6">
-            <b-card-img :src="image" class="rounded-0" style="height: 15em; width: auto"></b-card-img>
+            <b-card-img :src="image" class="rounded-0"
+              style="height: 15em; width: auto; image-rendering: crisp-edges; image-rendering: pixelated;"></b-card-img>
           </b-col>
           <b-col md="6">
             <b-card-body :title="title">
