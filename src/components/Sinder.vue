@@ -58,7 +58,7 @@ export default {
           title: "Neuro's Makeup",
           description: "Biggest project The Swarm is taking on.",
           image: makeupTemplate,
-          href: "https://sinder.pxls.world/#x=152&y=1266&scale=2.86&template=https%3A%2F%2Fi.imgur.com%2FllrJlTS.png&ox=0&oy=1132&tw=-1&title=Makeup&convert=nearestCustom"
+          href: "https://sinder.pxls.world/#x=109&y=1204&scale=10.66&template=https%3A%2F%2Fi.imgur.com%2FQHLKmdJ.png&ox=0&oy=1132&tw=184&title=Makeup&convert=nearestCustom"
         }
       ],
       fields: ["name", "url", "playback"],
