@@ -67,7 +67,6 @@ export default {
         { name: "Neuro Bwaa", url: "https://evilneuro.com/audio/neuro-bwaa.mp3", playback: '/audio/neuro-bwaa.mp3' },
         { name: "Neuro Got Ammunition", url: "https://evilneuro.com/audio/neuro-gotammunition", playback: '/audio/neuro-gotammunition.mp3' },
         { name: "Neuro Pizza Time", url: "https://evilneuro.com/audio/neuro-pizzatime.mp3", playback: '/audio/neuro-pizzatime.mp3' },
-        { name: "Neuro Bwaa", url: "https://evilneuro.com/audio/neuro-bwaa.mp3", playback: '/audio/neuro-bwaa.mp3' },
         { name: "Evil KEK", url: "https://evilneuro.com/audio/evil-kek.mp3", playback: '/audio/evil-kek.mp3' },
         { name: "Evil Dink Donk", url: "https://evilneuro.com/audio/evil-dinkdonk.mp3", playback: '/audio/evil-dinkdonk.mp3' },
         { name: "Evil AAAAAAH", url: "https://evilneuro.com/audio/evil-AAAAH.mp3", playback: '/audio/evil-AAAAH.mp3' },
