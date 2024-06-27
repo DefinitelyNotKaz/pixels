@@ -29,6 +29,7 @@ import Template from './Cards.vue'
 
 import mainTemplate from '@/assets/sinder/main.png'
 import tofTemplate from '@/assets/sinder/tof.png'
+import makeupTemplate from '@/assets/sinder/makeup.png'
 
 export default {
   name: "Sinder-canvas",
@@ -53,6 +54,12 @@ export default {
           image: tofTemplate,
           href: "https://sinder.pxls.world/#x=861&y=732&scale=35.04&template=https%3A%2F%2Fi.imgur.com%2FO2rVQyC.png&ox=845&oy=720&tw=-1&title=toffee&convert=nearestCustom"
         },
+        {id: 2,
+          title: "Neuro's Makeup",
+          description: "Biggest project The Swarm is taking on.",
+          image: makeupTemplate,
+          href: "https://sinder.pxls.world/#x=152&y=1266&scale=2.86&template=https%3A%2F%2Fi.imgur.com%2FllrJlTS.png&ox=0&oy=1132&tw=-1&title=Makeup&convert=nearestCustom"
+        }
       ],
       fields: ["name", "url", "playback"],
       audioFiles: [
