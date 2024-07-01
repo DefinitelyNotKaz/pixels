@@ -26,8 +26,9 @@
           <b-tab title="r/Place 2023" disabled>
             <hr />
           </b-tab>
-          <b-tab title="Cdawg" disabled>
+          <b-tab title="CdawgVA">
             <hr />
+            <Connor />
           </b-tab>
         </b-tabs>
       </div>
@@ -37,11 +38,13 @@
 
 <script>
 import Sinder from "./Sinder.vue";
+import Connor from "./Connor.vue";
 
 export default {
   name: "Landing-Page",
   components: {
     Sinder: Sinder,
+    Connor: Connor,
   },
 };
 </script>

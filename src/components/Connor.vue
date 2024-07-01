@@ -1,0 +1,215 @@
+<template>
+  <div id="content" class="container">
+    <b-alert v-if="inactive" show variant="danger"><b-icon-exclamation-triangle-fill></b-icon-exclamation-triangle-fill>
+      This event has ended! The page now is a public archive!</b-alert>
+    <h1>Timelapse</h1>
+    <hr>
+    <div id="timelapse-container">
+      <video controls on-pause="true" src="/connor/timelapses/full.mp4"></video>
+    </div>
+    <h1>Templates</h1>
+    <hr>
+    <div id="card-container">
+      <Card v-for="(item, index) in displayedTemplates" :key="index" :image="item.image" :name="item.name"
+        :active="item.active"></Card>
+      <b-button variant="primary" v-if="showSeeMoreTemplatesButton" @click="showMoreTemplates">See more</b-button>
+      <b-button variant="primary" v-if="showSeeLessTemplatesButton" @click="showLessTemplates">See less</b-button>
+    </div>
+    <hr>
+    <b-container>
+      <b-row>
+        <b-col>
+          <h1>Unnoficial templates</h1>
+          <hr>
+          <div id="ally-container">
+            <Unaffiliated v-for="(item, index) in displayedUnaffiliated" :key="index" :title="item.name"
+              :details="item.url" :image="item.image"></Unaffiliated>
+          </div>
+          <b-button style="margin-top: 1em;" variant="primary" v-if="showSeeMoreUnaffiliatedButton"
+            @click="showMoreUnaffiliated">See more</b-button>
+          <b-button style="margin-top: 1em;" variant="primary" v-if="showSeeLessUnaffiliatedButton"
+            @click="showLessUnaffiliated">See less</b-button>
+        </b-col>
+        <b-col>
+          <h1>Allies</h1>
+          <hr>
+          <div id="ally-container">
+            <Ally v-for="(item, index) in displayedAllies" :key="index" :title="item.name" :details="item.url"
+              :image="item.image" :templates="item.preview"></Ally>
+          </div>
+          <b-button style="margin-top: 1em;" variant="primary" v-if="showSeeMoreAlliesButton"
+            @click="showMoreAllies">See more</b-button>
+          <b-button style="margin-top: 1em;" variant="primary" v-if="showSeeLessAlliesButton"
+            @click="showLessAllies">See less</b-button>
+        </b-col>
+      </b-row>
+    </b-container>
+    <h1>Templates</h1>
+    <hr>
+    <div id="card-container">
+      <Card v-for="(item, index) in displayedTemplates" :key="index" :image="item.image" :name="item.name"
+        :active="item.active"></Card>
+      <b-button variant="primary" v-if="showSeeMoreTemplatesButton" @click="showMoreTemplates">See more</b-button>
+      <b-button variant="primary" v-if="showSeeLessTemplatesButton" @click="showLessTemplates">See less</b-button>
+    </div>
+  </div>
+</template>
+
+<script>
+import { BIconExclamationTriangleFill } from 'bootstrap-vue'
+
+import Card from './Items.vue'
+import Ally from './Allies.vue'
+import Unaffiliated from './Unaffiliated.vue'
+
+export default {
+  name: "Connor-Canvas",
+  components: {
+    BIconExclamationTriangleFill,
+    Card,
+    Ally,
+    Unaffiliated
+  },
+  data() {
+    return {
+      inactive: true,
+      showMoreTemplatesButton: true,
+      templates: [
+        { image: '/connor/templates/chainsaw.png', name: "Chainsaw Neuro", active: false },
+        { image: '/connor/templates/evilIDF.png', name: "Evil IDF", active: false },
+        { image: '/connor/templates/sleepover.png', name: "Moon Sleepover", active: false },
+        { image: '/connor/templates/channy.png', name: "Channy & Fumo", active: false },
+        { image: '/connor/templates/annyhood.png', name: "Anny Hoodie", active: false },
+        { image: '/connor/templates/swarm.png', name: "Giga Vedal & Anny", active: false },
+        { image: '/connor/templates/swarm.png', name: "Swarm Calls", active: false },
+        { image: '/connor/templates/anny.png', name: "Anny", active: false },
+      ],
+      displayTemplateCount: 4,
+      allies: [
+        { image: '/connor/allies/osu.png', name: "osu!", url: ["https://osu.place/cdawgva"], preview: [] },
+        { image: '/connor/allies/vienna.webp', name: "Vienna", url: ["https://tinyurl.com/viennagrimaceshake"], preview: [] },
+        { image: '/connor/allies/camila.jpeg', name: "Camila", url: ["https://tinyurl.com/camilARTV3"], preview: ['/connor/allies/templates/camila.png'] },
+        { image: '/connor/allies/rainhoe.jpeg', name: "Rainhoe", url: ["https://tinyurl.com/yc3d9jve"], preview: ['/connor/allies/templates/rainhoe.png'] },
+        { image: '/connor/allies/false.jpg', name: "FalseEyeD", url: ["https://tinyurl.com/TVStemplate"], preview: [] },
+        { image: '/connor/allies/pxls.png', name: "Pxls.Space", url: ["https://tinyurl.com/pxlsspacetemp"], preview: ['/connor/allies/templates/pxls.png'] },
+        { image: '/connor/allies/filian.jpg', name: "Filian", url: ["", ""], preview: ['/connor/allies/templates/filian1.png'] },
+        {
+          image: '/connor/allies/rqmaddie.jpeg', name: "Rqmaddie", url: ["", ""], preview: ['/connor/allies/templates/maddie1.png', '/connor/allies/templates/maddie2.png']
+        },
+        { image: '/connor/allies/miyune.jpg', name: "Miyune", url: ["", ""], preview: ["", '/connor/allies/templates/miyune2.png'] },
+        { image: '/connor/allies/saruei.png', name: "Saruei Corp", url: [""], preview: [] },
+      ],
+      displayAlliesCount: 5,
+      unaffiliated: [
+        { image: '/connor/unaffiliated/neuroPls.png', name: "neuroPls", url: "" },
+        { image: '/connor/unaffiliated/femturtle.png', name: "Femturtle", url: "" },
+        { image: '/connor/unaffiliated/host.png', name: "Host Error", url: "" },
+        { image: "emergencyPipeTemplate", name: "Emergency Pipe", url: "" },
+        { image: '/connor/unaffiliated/studysama.png', name: "Study-sama", url: "" },
+        { image: '/connor/unaffiliated/isaac.png', name: "Neuro TBOI", url: "" },
+        { image: '/connor/unaffiliated/shiba.png', name: "Shiba", url: "" },
+        { image: '/connor/unaffiliated/evilChibi.png', name: "Evil Chibi", url: "" },
+        { image: '/connor/unaffiliated/vedalRocket.png', name: "Vedal Rocket", url: "" },
+        { image: '/connor/unaffiliated/toff.png', name: "Toff", url: "" },
+      ],
+      displayUnaffiliatedCount: 5,
+      deprecated: [
+        { image: '', name: '', url: '' },
+      ],
+      displayDeprecatedCount: 5
+    }
+  },
+  computed: {
+    displayedTemplates() {
+      return this.templates.slice(0, this.displayTemplateCount)
+    },
+    showSeeMoreTemplatesButton() {
+      return this.displayTemplateCount < this.templates.length;
+    },
+    showSeeLessTemplatesButton() {
+      return this.displayTemplateCount > 4;
+    },
+    displayedAllies() {
+      return this.allies.slice(0, this.displayAlliesCount)
+    },
+    showSeeMoreAlliesButton() {
+      return this.displayAlliesCount < this.allies.length;
+    },
+    showSeeLessAlliesButton() {
+      return this.displayAlliesCount > 5;
+    },
+    displayedUnaffiliated() {
+      return this.unaffiliated.slice(0, this.displayUnaffiliatedCount)
+    },
+    showSeeMoreUnaffiliatedButton() {
+      return this.displayUnaffiliatedCount < this.unaffiliated.length;
+    },
+    showSeeLessUnaffiliatedButton() {
+      return this.displayUnaffiliatedCount > 5;
+    },
+    displayedDeprecated() {
+      return this.deprecated.slice(0, this.displayDeprecatedCount)
+    },
+    showSeeMoreDeprecatedButton() {
+      return this.displayDeprecatedCount < this.deprecated.length;
+    },
+    showSeeLessDeprecatedButton() {
+      return this.displayDeprecatedCount > 5;
+    },
+  },
+  methods: {
+    showMoreTemplates() {
+      return this.displayTemplateCount += 4;
+    },
+    showLessTemplates() {
+      return this.displayTemplateCount = 4;
+    },
+    showMoreAllies() {
+      return this.displayAlliesCount += 5;
+    },
+    showLessAllies() {
+      return this.displayAlliesCount = 5;
+    },
+    showMoreUnaffiliated() {
+      return this.displayUnaffiliatedCount += 5;
+    },
+    showLessUnaffiliated() {
+      return this.displayUnaffiliatedCount = 5;
+    },
+    showMoreDeprecated() {
+      return this.displayDeprecatedCount += 5;
+    },
+    showLEssDeprecated() {
+      return this.displayDeprecatedCount = 5;
+    }
+  }
+};
+</script>
+
+<style scoped>
+#content {
+  margin-bottom: 5em;
+}
+
+#timelapse-container {
+  display: flex;
+  justify-content: center;
+}
+
+#timelapse-container>video {
+  width: 50%;
+}
+
+#card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+#ally-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+</style>
